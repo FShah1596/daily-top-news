@@ -1,0 +1,35 @@
+{% extends 'news_feed/base.html'%}
+{% block title %}Sources{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-7">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+                        Search&nbsp;
+                        <input type="text" name="q">
+                        <br><br>
+                        Domain&nbsp;
+                        <input type="text" name="domains">
+                        <br><br>
+                        From&nbsp;
+                        <input type="date" name="fromTime">&nbsp;&nbsp;
+                        To&nbsp;
+                        <input type="date" name="toTime">
+                        <br><br>
+                        Sort According to<br>
+                        <input type="radio" name="radio" value="publishedAt">Published Date<br>
+                        <input type="radio" name="radio" value="relevancy">Search input<br>
+                        <input type="radio" name="radio" value="popularity">Popularity<br>
+                        <br>
+                        <input type="submit" name="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

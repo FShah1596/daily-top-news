@@ -1,0 +1,117 @@
+{% extends 'news_feed/base.html'%}
+{% block title %}Sources{% endblock %}
+{% block body %}
+
+
+<ul >
+    <form action="", method="post">
+        {% csrf_token %}
+        <div class="main">
+        <label>Category</label>
+
+        <div>
+        <input type="checkbox", name="category_tag[]", value="entertainment">Entertainment
+        <input type="checkbox", name="category_tag[]", value="business">Business
+        <input type="checkbox", name="category_tag[]", value="general">General
+        <input type="checkbox", name="category_tag[]", value="health">Health
+        <input type="checkbox", name="category_tag[]", value="sports">Sports
+        <input type="checkbox", name="category_tag[]", value="science">Science
+        <input type="checkbox", name="category_tag[]", value="technology">Technology
+        <br>
+        <br>
+        </div></div>
+        <div>
+    <label>Language</label>
+        <div>
+        <input type="checkbox", name="lang_tag[]", value="ar">Arabic
+        <input type="checkbox", name="lang_tag[]", value="de">German
+        <input type="checkbox", name="lang_tag[]", value="en">English
+        <input type="checkbox", name="lang_tag[]", value="es">Spanish
+        <input type="checkbox", name="lang_tag[]", value="fr">French
+        <input type="checkbox", name="lang_tag[]", value="he">Hebrew
+        <input type="checkbox", name="lang_tag[]", value="it">Italian
+        <input type="checkbox", name="lang_tag[]", value="nl">Dutch
+        <input type="checkbox", name="lang_tag[]", value="no">Norwegian
+        <input type="checkbox", name="lang_tag[]", value="pt">Portuguese
+        <input type="checkbox", name="lang_tag[]", value="ru">Russian
+        <input type="checkbox", name="lang_tag[]", value="se">Swedish
+        <input type="checkbox", name="lang_tag[]", value="ud">Urdu
+        <input type="checkbox", name="lang_tag[]", value="zh">Chinese
+        <br>
+        <br>
+        </div>
+        </div>
+        <div>
+        <label>Country</label>
+        <div>
+        <input type="checkbox", name="country_tag[]", value="ae">United Arab Emirates
+        <input type="checkbox", name="country_tag[]", value="ar">Argentina
+        <input type="checkbox", name="country_tag[]", value="at">Austria
+        <input type="checkbox", name="country_tag[]", value="au">Australia
+        <input type="checkbox", name="country_tag[]", value="be">Belgium
+        <input type="checkbox", name="country_tag[]", value="bg">Bulgaria
+        <input type="checkbox", name="country_tag[]", value="br">Brazil
+        <input type="checkbox", name="country_tag[]", value="ca">Cananda
+        <input type="checkbox", name="country_tag[]", value="ch">Switzerland
+        <input type="checkbox", name="country_tag[]", value="cn">China
+        <input type="checkbox", name="country_tag[]", value="co">Colombia
+        <input type="checkbox", name="country_tag[]", value="cu">Cuba
+        <input type="checkbox", name="country_tag[]", value="cz">Czech Republic
+        <input type="checkbox", name="country_tag[]", value="de">Germany
+        <input type="checkbox", name="country_tag[]", value="eg">Egypt
+        <input type="checkbox", name="country_tag[]", value="fr">France
+        <input type="checkbox", name="country_tag[]", value="gb">English
+        <input type="checkbox", name="country_tag[]", value="gr">Greece
+        <input type="checkbox", name="country_tag[]", value="hk">Hong Kong
+        <input type="checkbox", name="country_tag[]", value="hu">Hungary
+        <input type="checkbox", name="country_tag[]", value="id">Indonesia
+        <input type="checkbox", name="country_tag[]", value="ie">Ireland
+        <input type="checkbox", name="country_tag[]", value="il">Israel
+        <input type="checkbox", name="country_tag[]", value="in">India
+        <input type="checkbox", name="country_tag[]", value="it">Italy
+        <input type="checkbox", name="country_tag[]", value="jp">Japan
+        <input type="checkbox", name="country_tag[]", value="kr">South Korea
+        <input type="checkbox", name="country_tag[]", value="lt">Lithuania
+        <input type="checkbox", name="country_tag[]", value="lv">Latvia
+        <input type="checkbox", name="country_tag[]", value="ma">Morocco
+        <input type="checkbox", name="country_tag[]", value="mx">Mexico
+        <input type="checkbox", name="country_tag[]", value="my">Malaysia
+        <input type="checkbox", name="country_tag[]", value="ng">Nigeria
+        <input type="checkbox", name="country_tag[]", value="nl">Netherlands
+        <input type="checkbox", name="country_tag[]", value="no">Norway
+        <input type="checkbox", name="country_tag[]", value="nz">New Zealand
+        <input type="checkbox", name="country_tag[]", value="ph">Norwegian
+        <input type="checkbox", name="country_tag[]", value="pl">Philippines
+        <input type="checkbox", name="country_tag[]", value="pt">Portugal
+        <input type="checkbox", name="country_tag[]", value="ro">Romania
+        <input type="checkbox", name="country_tag[]", value="rs">Serbia
+        <input type="checkbox", name="country_tag[]", value="ru">Russia
+        <input type="checkbox", name="country_tag[]", value="sa">Saudi Arabia
+        <input type="checkbox", name="country_tag[]", value="se">Swedwn
+        <input type="checkbox", name="country_tag[]", value="sg">Singapore
+        <input type="checkbox", name="country_tag[]", value="si">Slovenia
+        <input type="checkbox", name="country_tag[]", value="sk">Slovakia
+        <input type="checkbox", name="country_tag[]", value="th">Thailand
+        <input type="checkbox", name="country_tag[]", value="tr">Turkey
+        <input type="checkbox", name="country_tag[]", value="tw">Taiwan
+        <input type="checkbox", name="country_tag[]", value="ua">Ukraine
+        <input type="checkbox", name="country_tag[]", value="us">United States
+        <input type="checkbox", name="country_tag[]", value="ve">Venezuela
+        <input type="checkbox", name="country_tag[]", value="za">South Africa
+
+        <br>
+        <br>
+        </div>
+        </div>
+        <input type="submit" value="Submit" name="Submit">
+
+    </form>
+</ul>
+{%if q%}
+    {% for value in q %}
+        <ul>{{value.description}}</ul>
+    {% endfor %}
+{%else%}
+    <ul><b><strong>No sources to display</strong></b></ul>
+{%endif%}
+{% endblock %}
