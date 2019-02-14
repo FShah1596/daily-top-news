@@ -19,6 +19,43 @@ class IndexView(ListView):
         return self.template_name
 
     # context_object_name = 'all_news'
+    
+class TopHeadLinesView(DetailView):
+    form  = TopHeadLineForm
+    url=''
+    def get(self, request):
+        form = self.form(None)
+        self.url = 'https://newsapi.org/v2/top-headlines?'
+        return render(request, 'news_feed/everything.html', {'form':form})
+
+    def post(self, request):
+        form = self.form(request.POST)
+        print (form)
+        if form.is_valid():
+            # user = form.save(commit=False)
+            # print ("hi")
+            self.url = 'https://newsapi.org/v2/everything?'
+            query = form.cleaned_data['q']
+            domains = form.cleaned_data['domains']
+            country = form.cleaned_data['country']
+            category = form.cleaned_data['category']
+            sortBy = request.POST.get('radio', None)
+            print (type(query),domains,fromDate,toDate,sortBy)
+            if query!='':
+                self.url = self.url+'q="'+query+'"&'
+            if domains!='':
+                self.url = self.url+'domains='+domains+'&'
+            if country!=None:
+                self.url = self.url+'country='+country+'&'
+            if category!=None:
+                self.url = self.url+'category='+category+'&'
+            if sortBy!=None:
+                self.url = self.url+'sortBy='+sortBy+'&'
+            self.url = self.url+'apiKey='+settings.API_KEY
+            print (self.url)
+            r = requests.get(self.url)
+            jso = r.json()
+            
 class EverythingView(DetailView):
     form  = EverythingForm
     url=''
