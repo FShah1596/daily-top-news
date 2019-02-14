@@ -15,7 +15,13 @@ class EverythingForm(forms.Form):
     toTime = forms.DateField(required=False)
     language_selected = forms.BooleanField(required=False)
     sortBy = forms.ChoiceField(widget=forms.RadioSelect, required=False)
-
+    
+    
+class TopHeadLinesForm(forms.Form):
+    q = forms.CharField(max_length=100, required=False)
+    country = forms.BooleanField(required=False)
+    category = forms.BooleanField(required=False)
+    
     # class Meta:
     #     model = User
     #     fields = ['language', 'country', 'category']
