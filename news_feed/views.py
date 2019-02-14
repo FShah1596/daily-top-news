@@ -26,7 +26,7 @@ class TopHeadLinesView(DetailView):
     def get(self, request):
         form = self.form(None)
         self.url = 'https://newsapi.org/v2/top-headlines?'
-        return render(request, 'news_feed/everything.html', {'form':form})
+        return render(request, 'news_feed/topheadlines.html', {'form':form})
 
     def post(self, request):
         form = self.form(request.POST)
@@ -34,7 +34,7 @@ class TopHeadLinesView(DetailView):
         if form.is_valid():
             # user = form.save(commit=False)
             # print ("hi")
-            self.url = 'https://newsapi.org/v2/everything?'
+            self.url = 'https://newsapi.org/v2/top-headlines?'
             query = form.cleaned_data['q']
             domains = form.cleaned_data['domains']
             country = form.cleaned_data['country']
