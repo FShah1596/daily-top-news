@@ -43,14 +43,14 @@ class TopHeadLinesView(DetailView):
             print (type(query),domains,fromDate,toDate,sortBy)
             if query!='':
                 self.url = self.url+'q="'+query+'"&'
-            if domains!='':
-                self.url = self.url+'domains='+domains+'&'
+#             if domains!='':
+#                 self.url = self.url+'domains='+domains+'&'
             if country!=None:
                 self.url = self.url+'country='+country+'&'
             if category!=None:
                 self.url = self.url+'category='+category+'&'
-            if sortBy!=None:
-                self.url = self.url+'sortBy='+sortBy+'&'
+#             if sortBy!=None:
+#                 self.url = self.url+'sortBy='+sortBy+'&'
             self.url = self.url+'apiKey='+settings.API_KEY
             print (self.url)
             r = requests.get(self.url)
