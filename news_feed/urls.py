@@ -10,6 +10,9 @@ urlpatterns = [
     path(r'sources/', views.SourceView.as_view(), name = 'sources'),
 
     #news_feed/everything
-    path(r'everything/', views.EverythingView.as_view(), name = 'everything')
+    path(r'everything/', views.EverythingView.as_view(), name = 'everything'),
+	
+	#news_feed/top-headlines
+	path(r'top-headlines/', views.TopHeadLinesView.as_view(), name = 'topheadlines')
     ]
 
