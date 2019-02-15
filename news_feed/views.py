@@ -55,6 +55,7 @@ class TopHeadLinesView(DetailView):
             print (self.url)
             r = requests.get(self.url)
             jso = r.json()
+            return render(request, 'news_feed/topheadlines.html', {'source': source, 'form': form, 'jso':jso},)
             
 class EverythingView(DetailView):
     form  = EverythingForm
@@ -92,6 +93,7 @@ class EverythingView(DetailView):
             r = requests.get(self.url)
             jso = r.json()
             print (jso)
+            return render(request, 'news_feed/everything.html', {'source': source, 'form': form, 'jso':jso},)
 
 class SourceView(DetailView):
     form = SourceForm
@@ -151,4 +153,4 @@ class SourceView(DetailView):
             # print (i)
 
 
-JR59414 - Fidelity Information Services
+
